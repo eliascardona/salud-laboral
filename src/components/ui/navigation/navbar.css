@@ -1,0 +1,14 @@
+.navCtn {
+	width: 100%;
+	display: grid;
+	padding: 1.5rem 0;
+	color: #fff;
+	background-color: #000;
+}
+
+.navBody {
+	width: 92%;
+	display: flex;
+	justify-self: center;
+	gap: 1rem;
+}

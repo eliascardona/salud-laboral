@@ -1,0 +1,10 @@
+.ly {
+	width: 100%;
+	display: grid;
+	grid-template-columns: 46% 46%;
+	gap: 2%;
+}
+
+.full {
+	width: 100%;
+}
