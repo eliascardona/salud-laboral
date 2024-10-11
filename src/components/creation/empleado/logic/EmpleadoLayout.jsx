@@ -5,28 +5,10 @@ import { fetchEmpleado } from '../../redux/slices/empleadoSlice'
 import PositioningGrid from '../../components/ui/layout/PositioningGrid'
 import SignUpForm from '../../components/auth/signup/logic/SignUpForm'
 
-import './styles/page.css'
+import './EmpleadoLayout.css'
 
 
-export default function QueriesPage() {
-	const dispatch = useDispatch()
-	const datosEmpleado = useSelector(state => state.empleado.datosEmpleado)
-	const loading = useSelector(state => state.empleado.loading)
-
-	const serverURL = `http://localhost:8080/manufactory/machines/get/id/1`
-
-	async function fetchFunc() {
-		evt.preventDefault()
-		const temp = {
-			attr1: evt.target.attr1.value,
-			attr2: evt.target.attr2.value,
-		}
-		console.log(temp)
-		/*dispatch(
-			fetchEmpleado(serverURL)
-		)*/
-	}
-
+export default function EmpleadoLayout() {
 	return (
 		<PositioningGrid position='center'>
 			<div className='ly'>

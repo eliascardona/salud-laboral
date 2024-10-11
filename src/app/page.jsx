@@ -1,5 +1,5 @@
 import { Routes, Route } from 'react-router-dom'
-import Navbar from '../components/ui/navigation/Navbar'
+import MainHeader from '../components/ui/headers/MainHeader'
 import HomePage from './home/HomePage'
 import QueriesPage from './queries/QueriesPage'
 import '../assets/css/global.css'
@@ -19,7 +19,7 @@ export default function Page() {
 
 	return (
 		<div className="body">
-			<Navbar />
+			<MainHeader />
 			<Routes>
 				<Route 
 					path="/"
@@ -27,7 +27,7 @@ export default function Page() {
 					element={pagesDirectory.homePage}
 				/>
 				<Route 
-					path="/queries"
+					path="/consultas"
 					element={pagesDirectory.queriesPage}
 				/>
 				{/*  for not found routes  */}
