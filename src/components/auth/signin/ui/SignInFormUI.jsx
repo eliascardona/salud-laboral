@@ -1,4 +1,4 @@
-import '../styles/tools.css'
+import '../styles/SignIn.css'
 
 export default function SignInFormUI({ handleCustomerName, handleCustomerEmail, handleCustomerPass }) {
 	return (

@@ -1,14 +1,19 @@
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { fetchEmpleado } from '../../redux/slices/empleadoSlice'
+import { fetchEmpleado } from '../../../../redux/slices/empleadoSlice'
 
-import PositioningGrid from '../../components/ui/layout/PositioningGrid'
-import SignUpForm from '../../components/auth/signup/logic/SignUpForm'
+import PositioningGrid from '../../../../components/ui/layout/PositioningGrid'
+import SignUpForm from '../../../../components/auth/signup/logic/SignUpForm'
 
-import './EmpleadoLayout.css'
+import '../styles/EmpleadoLayout.css'
 
 
 export default function EmpleadoLayout() {
+
+	async function fetchFunc(evt) {
+		console.log(evt.target.attr1.value)
+	}
+
 	return (
 		<PositioningGrid position='center'>
 			<div className='ly'>
@@ -19,6 +24,7 @@ export default function EmpleadoLayout() {
 					<h3>
 						(menu)
 					</h3>
+					<SignUpForm />
 				</div>
 				<div className='full'>
 					<div className='innerLy'>
@@ -40,31 +46,39 @@ export default function EmpleadoLayout() {
 							<h3>
 								crear datos
 							</h3>
-							<form 
+							<form
 								onSubmit={async (e) => {
-									await fetchFunc(e)
+									e.preventDefault()
+									try {
+										await fetchFunc(e)
+									} catch (ex) {
+										console.log(ex.message)
+										
+									}
 								}}
 							>
 								<input
 									type='text'
-									name='attr1'
 									className='input'
+									name='attr1'
 									placeholder='attr1'
 								/>
 								<input
 									type='text'
-									name='attr1'
 									className='input'
-									placeholder='attr1'
+									name='attr2'
+									placeholder='attr2'
 								/>
 
-								<button
+								<button 
 									type='submit'
 									className='btn'
 								>
-									click
+									hola
 								</button>
 							</form>
+							{/*   fin del formulario   */}
+
 						</div>
 					</div>
 				</div>

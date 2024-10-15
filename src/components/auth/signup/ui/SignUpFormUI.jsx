@@ -1,4 +1,4 @@
-import '../styles/tools.css'
+import '../styles/SignUp.css'
 
 export default function SignUpFormUI({ handleCustomerName, handleCustomerEmail, handleCustomerPass }) {
 	return (
