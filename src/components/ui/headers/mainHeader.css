@@ -1,9 +1,9 @@
 .navCtn {
 	width: 100%;
 	display: grid;
-	padding: 1rem 0;
-	color: #fff;
-	background-color: #000;
+	padding: 1.5rem 0;
+	border-bottom: 1px solid #aaa;
+	box-shadow: rgba(10, 10, 10, 0.3) 0 2px 0 0;
 }
 
 .navBody {
@@ -14,5 +14,5 @@
 }
 
 .link {
-	color: #fff;
+	color: #4a4a4a;
 }

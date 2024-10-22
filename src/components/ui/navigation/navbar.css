@@ -1,14 +1,546 @@
-.navCtn {
-	width: 100%;
-	display: grid;
-	padding: 1.5rem 0;
-	color: #fff;
-	background-color: #000;
+.global_container {
+  margin: inherit;
 }
 
-.navBody {
-	width: 92%;
+/* Sidebar */
+.sidebar {
+  width: 250px;
+  height: 100%;
+  background-color: #f7f9fc;
+  color: #000000;
+  overflow-y: auto;
+  position: absolute;
+  top: 67px;
+  left: 0;
+  bottom: 0;
+  z-index: 2; /* Encima del overlay */
+  transition: transform 0.3s ease-in-out;
+  transition: all 0.3s ease;
+  transform: translateX(0);
+  scrollbar-width: thin; /* Firefox */
+  scrollbar-color: #3a7bd5 #e4e3e3; /* Firefox */
+}
+
+/* Contenido principal */
+.main-content {
+  position: absolute;
+  left: 18%;
+  transition: 250px 0.3s ease;
+}
+
+/* Estilos para cuando la barra lateral está cerrada */
+.sidebar.closed {
+  transform: translateX(-100%);
+}
+
+/* Eliminar margen y padding del sidebar y main-content */
+.sidebar,
+.main-content {
+  margin: 0;
+  padding: 0;
+}
+
+/* Reservar espacio para el scrollbar */
+.nav-sections {
+  padding-right: 12px; /* Ancho del scrollbar */
+}
+
+/* Estilos para el scrollbar en Chrome, Safari y Opera */
+.sidebar::-webkit-scrollbar {
+  width: 12px;
+}
+
+.sidebar::-webkit-scrollbar-track {
+  background: #e4e3e3;
+  border-radius: 6px;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+  background-color: #3a7bd5;
+  border-radius: 6px;
+  border: 3px solid #dcdcdc;
+  transition: background-color 0.3s ease;
+}
+
+/* Ocultar scrollbar cuando no está activo */
+.sidebar:not(.scrollbar-visible)::-webkit-scrollbar-thumb {
+  background-color: transparent;
+}
+
+.sidebar:not(.scrollbar-visible)::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.sidebar:not(.scrollbar-visible) {
+  scrollbar-color: transparent transparent; /* Firefox */
+}
+
+/* Overlay */
+.overlay {
+  display: none; /* Oculto por defecto */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Fondo semi-transparente */
+  backdrop-filter: blur(5px); /* Efecto de desenfoque */
+  z-index: 1; /* Debajo de la sidebar pero encima del contenido principal */
+}
+
+.overlay.active {
+  display: block;
+}
+
+/* Títulos de navegación */
+.nav-title {
+  padding: 10px 15px;
+  color: #333333;
+  font-size: 0.9em;
+  text-transform: uppercase;
+}
+
+/* Navegación */
+.nav-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-list li {
+  padding: 0;
+}
+
+.nav-list li a {
+  color: #333333;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  padding: 10px 15px;
+  border-radius: 6px;
+}
+
+.nav-list li a:hover {
+  background-color: #e6f2ff;
+  color: #1f5ba6;
+}
+
+.icon {
+  width: 30px;
+  text-align: center;
+  margin-right: 10px;
+  font-size: 1.2em;
+}
+
+.chevron {
+  margin-left: auto;
+  font-size: 0.8em;
+  color: #666666;
+}
+
+.nav-list li a span {
+  vertical-align: middle;
+}
+
+/* Iconos de colores */
+.home-icon {
+  color: #3a7bd5;
+}
+
+.layout-icon {
+  color: #1abc9c;
+}
+
+.statics-icon {
+  color: #f39c12;
+}
+
+.data-icon {
+  color: #9b59b6;
+}
+
+.chart-icon {
+  color: #e74c3c;
+}
+
+.courses-icon {
+  color: #2ecc71;
+}
+
+.membership-icon {
+  color: #16a085;
+}
+
+.forms-icon {
+  color: #f1c40f;
+}
+
+.email-icon {
+  color: #2980b9;
+}
+
+.calendar-icon {
+  color: #8e44ad;
+}
+
+.chat-icon {
+  color: #d35400;
+}
+
+.table-icon {
+  color: #795548;
+}
+
+.maps-icon {
+  color: #27ae60;
+}
+
+.pages-icon {
+  color: #95a5a6;
+}
+
+/* Submenú */
+.submenu {
+  list-style-type: none;
+  padding-left: 20px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+}
+
+.submenu.open {
+  max-height: 1000px;
+}
+
+.submenu li {
+  padding: 0;
+}
+
+.submenu li a {
+  color: #555555;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  padding: 8px 15px;
+  border-radius: 5px;
+}
+
+.submenu li a:hover {
+  background-color: #e6f2ff;
+  color: #1f5ba6;
+}
+
+.sub-icon {
+  width: 20px;
+  text-align: center;
+  margin-right: 10px;
+  font-size: 0.9em;
+  color: #888888;
+}
+
+/* Sub-submenú */
+.submenu .submenu {
+  padding-left: 20px;
+}
+
+.submenu .submenu li a {
+  padding: 8px 15px;
+}
+
+.submenu .submenu .sub-icon {
+  width: 20px;
+}
+
+/* Botón de toggle */
+.toggle-btn {
+  position: fixed; /* Asegura que esté siempre visible */
+  top: 20px;
+  left: 15px;
+  background-color: transparent;
+  border: none;
+  color: #000000;
+  cursor: pointer;
+  font-size: 1.5em;
+  z-index: 4; /* Encima del overlay y sidebar */
+  padding: 0;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: max-height 0.3s ease-out;
+}
+.btn-open{
+	position: fixed; /* Asegura que esté siempre visible */
+	top: 20px;
+	left: 21%;
+	background-color: transparent;
+	border: none;
+	color: #000000;
+	cursor: pointer;
+	font-size: 1.5em;
+	z-index: 5; /* Encima del overlay y sidebar */
+	padding: 0;
+	width: 40px;
+	height: 40px;
 	display: flex;
-	justify-self: center;
-	gap: 1rem;
+	align-items: center;
+	justify-content: center;
+	transition: all 0.3s ease;
+}
+.btn-close{
+	position: fixed; /* Asegura que esté siempre visible */
+	top: 20px;
+	left: 15px;
+	background-color: transparent;
+	border: none;
+	color: #000000;
+	cursor: pointer;
+	font-size: 1.5em;
+	z-index: 5; /* Encima del overlay y sidebar */
+	padding: 0;
+	width: 40px;
+	height: 40px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transition: all 0.3s ease;
+}
+
+.toggle-btn:hover {
+  color: #1f5ba6;
+}
+
+/* Ajuste cuando el navbar está cerrado */
+.nav-closed {
+  margin-left: 0%;
+}
+@media screen and (max-width: 1150px){
+  .sidebar {
+    width: 28%;
+  }
+  .main-content{
+    margin-left: 29%;
+  }
+  .nav-closed {
+    margin-left: 0%;
+  }
+    
+.btn-open{
+	position: fixed; /* Asegura que esté siempre visible */
+	top: 20px;
+	left: 29%;
+	background-color: transparent;
+	border: none;
+	color: #000000;
+	cursor: pointer;
+	font-size: 1.5em;
+	z-index: 5; /* Encima del overlay y sidebar */
+	padding: 0;
+	width: 40px;
+	height: 40px;
+	display: flex;
+	align-items: right;
+	justify-content: center;
+	transition: all 0.3s ease;
+}
+
+}
+
+/* Responsividad */
+@media screen and (max-width: 890px) {
+  /* Ajustes para la barra lateral en móviles */
+  .sidebar {
+    width: 40%; /* Ocupar 80% del ancho de la pantalla */
+    transform: translateX(-100%); /* Cerrada por defecto */
+  }
+
+  /* Mostrar el sidebar cuando no tiene la clase 'closed' */
+  .sidebar:not(.closed) {
+    transform: translateX(0);
+  }
+
+  /* Mostrar el overlay cuando el sidebar está abierto */
+  .overlay.active {
+    display: block;
+  }
+
+  /* Ajustes para el contenido principal */
+  .main-content {
+    margin-left: 0; /* No desplazar el contenido */
+  }
+
+  /* Asegurar que el botón de toggle esté siempre accesible */
+  .toggle-btn {
+    position: fixed; /* Asegura que esté siempre visible */
+    top: 20px;
+    left: 15px;
+    z-index: 4; /* Encima del overlay y sidebar */
+  }
+  
+.btn-open{
+	position: fixed; /* Asegura que esté siempre visible */
+	top: 20px;
+	left: 41%;
+	background-color: transparent;
+	border: none;
+	color: #000000;
+	cursor: pointer;
+	font-size: 1.5em;
+	z-index: 5; /* Encima del overlay y sidebar */
+	padding: 0;
+	width: 40px;
+	height: 40px;
+	display: flex;
+	align-items: center;
+	justify-content: right;
+	transition: all 0.3s ease;
+}
+.btn-close{
+	position: fixed; /* Asegura que esté siempre visible */
+	top: 20px;
+	left: 15px;
+	background-color: transparent;
+	border: none;
+	color: #000000;
+	cursor: pointer;
+	font-size: 1.5em;
+	z-index: 5; /* Encima del overlay y sidebar */
+	padding: 0;
+	width: 40px;
+	height: 40px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transition: all 0.3s ease;
+}
+
+.username {
+  font-size: 1em;
+  color: #000000;
+}
+}
+
+/* Responsividad */
+@media screen and (max-width: 635px) {
+  /* Ajustes para la barra lateral en móviles */
+  .sidebar {
+    width: 55%; /* Ocupar 80% del ancho de la pantalla */
+    transform: translateX(-100%); /* Cerrada por defecto */
+  }
+
+  /* Mostrar el sidebar cuando no tiene la clase 'closed' */
+  .sidebar:not(.closed) {
+    transform: translateX(0);
+  }
+
+  /* Mostrar el overlay cuando el sidebar está abierto */
+  .overlay.active {
+    display: block;
+  }
+
+  /* Ajustes para el contenido principal */
+  .main-content {
+    margin-left: 0; /* No desplazar el contenido */
+  }
+
+  /* Asegurar que el botón de toggle esté siempre accesible */
+  .toggle-btn {
+    position: fixed; /* Asegura que esté siempre visible */
+    top: 20px;
+    left: 15px;
+    z-index: 4; /* Encima del overlay y sidebar */
+  }
+  
+.btn-open{
+	position: fixed; /* Asegura que esté siempre visible */
+	top: 20px;
+	left: 56%;
+	background-color: transparent;
+	border: none;
+	color: #000000;
+	cursor: pointer;
+	font-size: 1.5em;
+	z-index: 5; /* Encima del overlay y sidebar */
+	padding: 0;
+	width: 40px;
+	height: 40px;
+	display: flex;
+	align-items: center;
+	justify-content: right;
+	transition: all 0.3s ease;
+}
+.btn-close{
+	position: fixed; /* Asegura que esté siempre visible */
+	top: 20px;
+	left: 15px;
+	background-color: transparent;
+	border: none;
+	color: #000000;
+	cursor: pointer;
+	font-size: 1.5em;
+	z-index: 5; /* Encima del overlay y sidebar */
+	padding: 0;
+	width: 40px;
+	height: 40px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transition: all 0.3s ease;
+}
+
+.username {
+  font-size: 1em;
+  color: #000000;
+}
+}
+
+
+/* Ajustes para pantallas extremadamente pequeñas */
+@media screen and (max-width: 480px) {
+
+  .user-menu-btn {
+    margin-left: auto;
+  }
+
+  .sidebar {
+    width: 74%; /* Ocupar 80% del ancho de la pantalla */
+  }
+  
+.btn-open{
+	position: fixed; /* Asegura que esté siempre visible */
+	top: 20px;
+	left: 75%;
+	background-color: transparent;
+	border: none;
+	color: #000000;
+	cursor: pointer;
+	font-size: 1.5em;
+	z-index: 5; /* Encima del overlay y sidebar */
+	padding: 0;
+	width: 40px;
+	height: 40px;
+	display: flex;
+	align-items: right;
+	justify-content: center;
+	transition: all 0.3s ease;
+}
+.btn-close{
+	position: fixed; /* Asegura que esté siempre visible */
+	top: 20px;
+	left: 15px;
+	background-color: transparent;
+	border: none;
+	color: #000000;
+	cursor: pointer;
+	font-size: 1.5em;
+	z-index: 5; /* Encima del overlay y sidebar */
+	padding: 0;
+	width: 40px;
+	height: 40px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transition: all 0.3s ease;
+}
 }

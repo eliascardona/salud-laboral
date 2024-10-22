@@ -1,8 +1,8 @@
-.dGrid {
+.SignIn__dGrid {
 	display: grid;
 }
 
-.label {
+.SignIn__label {
     justify-self: flex-start;
     padding-left: 1.6rem;
     margin-bottom: 5px;
@@ -11,7 +11,7 @@
     color: #3a3a3a;
 }
 
-.input {
+.SignIn__input {
     width: 85%;
 	justify-self: center;
     padding: 8px;
@@ -26,12 +26,12 @@
     transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
 }
 
-.formDisplay {
+.SignIn__formDisplay {
     display: grid;
     padding-bottom: 1rem;
 }
 
-.formBtn {
+.SignIn__formBtn {
     width: 94%;
     justify-self: center;
     padding: 8px 0;
@@ -44,7 +44,7 @@
     cursor: pointer;
 }
 
-.paymentBtn {
+.SignIn__paymentBtn {
     width: 92%;
     justify-self: center;
     padding: 8px 0;
@@ -57,35 +57,35 @@
     cursor: pointer;
 }
 
-.containerLy {
+.SignIn__containerLy {
 	width: 100%;
 	display: grid;
     padding-bottom: 1rem;
 }
 
-.formTitle {
+.SignIn__formTitle {
     font-size: 1.2em;
     color: #5a5a5a;
     padding-left: 1rem;
 }
 
-.twoRemLine {
+.SignIn__twoRemLine {
     width: 100%;
     height: 2rem;
 }
 
-.oneRemLine {
+.SignIn__oneRemLine {
     width: 100%;
     height: 1.2rem;
 }
 
-.inputGroup {
+.SignIn__inputGroup {
 	width: 98%;
 	display: grid;
 	justify-self: center;
 }
 
-.inputLine {
+.SignIn__inputLine {
 	width: 100%;
 	display: grid;
 	justify-self: center;
@@ -94,7 +94,7 @@
     margin-bottom: .75rem;
 }
 
-.inputLineLy {
+.SignIn__inputLineLy {
 	width: 100%;
 	display: grid;
 	grid-auto-flow: column;
@@ -103,7 +103,7 @@
 	justify-self: center;
 }
 
-.inputLy {
+.SignIn__inputLy {
 	width: 90%;
 	display: grid;
 	grid-auto-flow: column;
@@ -113,11 +113,11 @@
 	justify-self: center;
 }
 
-.inputLy span {
+.SignIn__inputLy span {
 	width: 100%;
 }
 
-.halfInput {
+.SignIn__halfInput {
     width: 110px;
     display: inline;
     margin: 2px 0;
@@ -128,11 +128,11 @@
     font-size: 16px;
 }
 
-.halfInput:nth-child(2) {
+.SignIn__halfInput:nth-child(2) {
     margin-left: 10px;
 }
 
-.centerItem {
+.SignIn__centerItem {
     width: 100%;
     display: grid;
     justify-self: center;
@@ -140,11 +140,11 @@
 }
 
 @media(max-width: 768px) {
-	.formBtn {
+	.SignIn__formBtn {
 		width: 80%;
         justify-self: center;
 	}
-	.paymentBtn {
+	.SignIn__paymentBtn {
 		width: 88%;
         justify-self: center;
 	}
@@ -154,42 +154,41 @@
     STYLES FROM PAYMENT FORM ENDS ABOVE
 */
 
-.resumeBox {
+.SignIn__resumeBox {
 	width: 80%;
 	display: grid;
 }
 
-.hgLy {
+.SignIn__hgLy {
 	width: 100%;
 	display: grid;
 	align-items: self-start;
 	justify-items: center;
 }
 
-.hgPricingLy {
+.SignIn__hgPricingLy {
 	width: 100%;
 	display: grid;
 	grid-template-columns: 50% 50%;
 	padding-left: 7%;
 }
 
-.lgFont {
+.SignIn__lgFont {
 	font-size: 3em;
 }
 
-.superIndex {
+.SignIn__superIndex {
 	display: grid;
 	font-size: 0.7em;
 	vertical-align: super;
 }
 
-.blue {
+.SignIn__blue {
     color: rgb(15, 99, 196);
 }
 
 @media(max-width: 768px) {
-	.resumeBox {
+	.SignIn__resumeBox {
 		width: 88%;
 	}
 }
-
