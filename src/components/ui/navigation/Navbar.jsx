@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
 import { main_cat } from './information/items';
 import { sub_cat } from './information/items'
-import MainHeader from '../../../components/ui/headers/MainHeader'
+import MainHeader from '../headers/MainHeader'
 import ProfileOptions from './profileOptionsUI/ProfileOptions';
 import LogicSidebar from './logicSidebar/LogicSidebar';
 import Navcat from './ui/navcat';
@@ -86,7 +86,7 @@ export default function Navbar({ children }) {
   }, []);
 
   return (
-    <div className="global_container">
+    <div className="Navbar__global_container">
       <MainHeader />
       <LogicSidebar
         navOpen={navOpen}
@@ -97,8 +97,8 @@ export default function Navbar({ children }) {
       >
         <>
           <ProfileOptions userMenuOpen={userMenuOpen} toggleUserMenu={toggleUserMenu} />
-          <div className="nav-sections">
-            <div className="nav-title">Navigation</div>
+          <div className="Navbar__nav-sections">
+            <div className="Navbar__nav-title">Navigation</div>
             {
               main_cat.map((items, i) => (
                 <Navcat
@@ -129,18 +129,22 @@ export default function Navbar({ children }) {
           </div>
         </>
       </LogicSidebar>
-      <div className={`main-content ${navOpen ? '' : 'nav-closed'}`}>
+      <div className={`Navbar__main-content ${navOpen ? '' : 'Navbar__nav-closed'}`}>
         <button
-          className={`${navOpen ? 'btn-open' : 'btn-close'}`}
+          className={`${navOpen ? 'Navbar__btn-open' : 'Navbar__btn-close'}`}
           onClick={toggleNav}
-          aria-label={navOpen ? 'Cerrar navegación' : 'Abrir navegación'}
+          aria-label={navOpen ? 'Cerrar menu' : 'Abrir menu'}
           aria-expanded={navOpen}
         >
           {
-            navOpen ? <ion-icon name="people-outline"></ion-icon> : <ion-icon name="people-outline"></ion-icon>
+            navOpen ? (
+              <ion-icon name="people-outline"></ion-icon>
+            ) : (
+              <ion-icon name="people-outline"></ion-icon>
+            )
           }
         </button>
-        <span id='application-content' style={{display:'grid', width:'81vw'}}>
+        <span id='Navbar__application-content' style={{display:'grid', width:'81vw'}}>
           {children}
         </span>
       </div>

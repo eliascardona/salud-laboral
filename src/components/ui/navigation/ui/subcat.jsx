@@ -24,7 +24,7 @@ export default function Subcat({ titulo, link, iconName, color }) {
             color: color || '#333',  // Aplica el color al ícono
             marginRight: '8px'
           }} 
-          className="sub-icon">
+          className="Navbar__sub-icon">
         </ion-icon>
 
         {/* Título con estilo de color gris */}

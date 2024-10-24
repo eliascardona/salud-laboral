@@ -1,4 +1,4 @@
-.navCtn {
+.MainHeader__navCtn {
 	width: 100%;
 	display: grid;
 	padding: 1.5rem 0;
@@ -6,13 +6,13 @@
 	box-shadow: rgba(10, 10, 10, 0.3) 0 2px 0 0;
 }
 
-.navBody {
+.MainHeader__navBody {
 	width: 92%;
 	display: flex;
 	justify-self: center;
 	gap: 1.5rem;
 }
 
-.link {
+.MainHeader__link {
 	color: #4a4a4a;
 }

@@ -1,7 +1,4 @@
-/* src/components/CardLayout.css */
-
-/* Contenedor principal de las tarjetas */
-.card-layout-container {
+.CardLy__lyCtn {
     width: 100%;
     padding: 20px;
     background-color: #ffffff; /* Fondo blanco para coherencia */
@@ -10,7 +7,7 @@
 }
 
 /* Grid de tarjetas */
-.card-grid {
+.CardLy__grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr); /* 3 columnas por defecto */
     gap: 20px;

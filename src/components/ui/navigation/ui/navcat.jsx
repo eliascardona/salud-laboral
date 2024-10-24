@@ -1,6 +1,8 @@
-export default function Navcat({ titulo, iconName, color, handleToggle, toggleParam, openSubmenus={}, children }) {
+export default function Navcat(
+  { titulo, iconName, color, handleToggle, toggleParam, openSubmenus={}, children }
+) {
   return (
-    <ul className="nav-list">
+    <ul className="Navbar__nav-list">
       <li>
         <a 
           href="#"
@@ -16,7 +18,7 @@ export default function Navcat({ titulo, iconName, color, handleToggle, togglePa
               color: color || '#333',
               marginRight: '10px'
             }} 
-            className="icon">
+            className="Navbar__icon">
           </ion-icon>
 
           <span>{titulo}</span>
@@ -31,7 +33,7 @@ export default function Navcat({ titulo, iconName, color, handleToggle, togglePa
                   color: '#666',
                   marginLeft: 'auto'
                 }} 
-                className="chevron">
+                className="Navbar__chevron">
               </ion-icon>
             ) : (
               <ion-icon 
@@ -41,7 +43,7 @@ export default function Navcat({ titulo, iconName, color, handleToggle, togglePa
                   color: '#999',
                   marginLeft: 'auto'
                 }} 
-                className="chevron">
+                className="Navbar__chevron">
               </ion-icon>
             )
           }

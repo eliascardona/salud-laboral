@@ -1,19 +1,19 @@
-import './mainHeader.css'
 import { Link } from 'react-router-dom'
+import './MainHeader.css'
 
 export default function MainHeader() {
 	return (
-		<div className='navCtn'>
-			<div className='navBody'>
+		<div className='MainHeader__navCtn'>
+			<div className='MainHeader__navBody'>
 
 				<span>
-					<Link to="/" className='link'>
+					<Link to="/" className='MainHeader__link'>
 						home
 					</Link>
 				</span>
 				{/*    navigation link   */}
 				<span>
-					<Link to="/consultas" className='link'>
+					<Link to="/consultas" className='MainHeader__link'>
 						consultas
 					</Link>
 				</span>

@@ -1,13 +1,12 @@
-import ColumnComponent from '../../retrieving/surverys/ui/ColumnComponent';
 import { useUpdateURLSearchParams } from '../../../lib/utils/navigation';
-
-import '../../../assets/css/home.css'
+import ColumnComponent from '../../retrieving/surverys/ui/ColumnComponent';
+//import DataDeatilsComponent from '../../retrieving/surverys/ui/DataDeatilsComponent';
+import './styles/HomePageUI.css'
 
 
 export default function HomePageUI() {
     const data1 = { id: 1, info: 'Info 1' }
     const data2 = [{ id: 1, name: 'John' }, { id: 2, name: 'Jane' }];
-    const data3 = [{ id: 1, details: 'Detail 1' }, { id: 2, details: 'Detail 2' }];
 
     const updateURLSearchParams = useUpdateURLSearchParams()
     const handleClick = (qsKey, value) => {
@@ -17,9 +16,13 @@ export default function HomePageUI() {
     const r = Math.random()
     const rand = r.toString()
 
+    /*
+        lets imagine a `customFunc()` and the needed state variables here
+    */
+
     return (
-        <div className="grid">
-            <div className="col">
+        <div className="Home__grid">
+            <div className="Home__col">
                 <ColumnComponent 
                     item={data1}
                     URLDispatcher={() => handleClick('rondin', data1.id)}
@@ -27,7 +30,7 @@ export default function HomePageUI() {
                     keyv={`${data1['info']}_${rand}`}
                 ></ColumnComponent>
             </div>
-            <div className="col">
+            <div className="Home__col">
                 {
                     data2.map((el, i) => (
                         <ColumnComponent 
@@ -39,17 +42,19 @@ export default function HomePageUI() {
                     ))
                 }
             </div>
-            <div className="col">
-                {
-                    data3.map((elm, j) => (
-                        <ColumnComponent 
-                            item={elm}
-                            URLDispatcher={() => handleClick('atributoDeEncuesta', elm.id)}
-                            attr='details'
-                            keyv={`${data3['details']}_${j}`}
-                        ></ColumnComponent>
-                    ))
-                }
+            <div className="Home__col">
+				{/*    {
+                    stateVar && <>{
+                        (async () => {
+                            customFunc((dataFromCallback) => {
+                                if (dataFromCallback != null){
+                                    return <DataDeatilsComponent data={{...dataFromCallback}} />
+                                }
+                            })
+                        })()
+                        
+                    }</>
+                }		*/}
             </div>
         </div>
     )
