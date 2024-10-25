@@ -14,42 +14,47 @@ export default function SignUpPage() {
         redirect(route)
     }
 
-    useEffect(() => {
-        let isMounted = true
-        const timeoutId = setTimeout(() => {
-            if(isMounted) {
-                setErrorFlag(true)
-            }
-        }, 10000)
+    // useEffect(() => {
+    //     let isMounted = true
+    //     const timeoutId = setTimeout(() => {
+    //         if(isMounted) {
+    //             setErrorFlag(true)
+    //         }
+    //     }, 10000)
 
-        if(loadingAuthSDK || errorInAuthSDK) {
-            setFlag(false)
-            clearTimeout(timeoutId)
-        } else {
-            setFlag(true)
-        }
+    //     if(loadingAuthSDK || errorInAuthSDK) {
+    //         setFlag(false)
+    //         clearTimeout(timeoutId)
+    //     } else {
+    //         setFlag(true)
+    //     }
 
-        return () => {
-            isMounted = false
-            clearTimeout(timeoutId)
-        }
-    }, [loadingAuthSDK, errorInAuthSDK])
+    //     return () => {
+    //         isMounted = false
+    //         clearTimeout(timeoutId)
+    //     }
+    // }, [loadingAuthSDK, errorInAuthSDK])
 
-    if(errorFlag) {
-        return <AuthErrorUI errorMessage="Ocurrió un error interno, por favor refresca la página" />
-    }
+    // if(errorFlag) {
+    //     return <AuthErrorUI errorMessage="Ocurrió un error interno, por favor refresca la página" />
+    // }
 
-    if(flag) {
-        if(errorInAuthSDK) return <AuthErrorUI errorMessage={errorInAuthSDK} />
+    // if(flag) {
+    //     if(errorInAuthSDK) return <AuthErrorUI errorMessage={errorInAuthSDK} />
 
-        const reduxCurrentUser = useSelector(state => state.gAuth.currentUser)
+    //     const reduxCurrentUser = useSelector(state => state.gAuth.currentUser)
 
-        if(reduxCurrentUser === null) {
-            return <SignUpForm />
-        } else {
-            redirectTo("/")
-        }
-    }
+    //     if(reduxCurrentUser === null) {
+    //         return <SignUpForm />
+    //     } else {
+    //         redirectTo("/")
+    //     }
+    // }
 
-    return <LoadingAuthUI />
+    // return <LoadingAuthUI />
+
+    return (
+        <SignUpForm />
+    )
+
 }

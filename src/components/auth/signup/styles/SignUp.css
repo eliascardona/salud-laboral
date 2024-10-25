@@ -1,5 +1,10 @@
-.SignUp__dGrid {
+.SignUp__Card {
+    width: 42%;
 	display: grid;
+    place-self: center;
+    margin-top: 2rem;
+    border-radius: .375rem;
+    box-shadow: rgba(10, 10, 10, 0.3) 0 0 2px 0;
 }
 
 .SignUp__label {
@@ -32,28 +37,15 @@
 }
 
 .SignUp__formBtn {
-    width: 94%;
+    width: 60%;
     justify-self: center;
     padding: 8px 0;
     border-style: none;
     border: none;
     border-radius: 0.375rem;
     color: #fff;
-    background-color: #2a2a2a;
+    background-color: #222;
     font-size: 1em;
-    cursor: pointer;
-}
-
-.SignUp__paymentBtn {
-    width: 92%;
-    justify-self: center;
-    padding: 8px 0;
-    border-style: none;
-    border: none;
-    border-radius: 0.375rem;
-    color: #fdfdfd;
-    background-color: #28c76f;
-    font-size: 1.1em;
     cursor: pointer;
 }
 

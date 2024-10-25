@@ -25,13 +25,8 @@ export default function SignInForm() {
 				handleUserPass={(e) => {
 					setPass(e.target.value)
 				}}
+				onClickCallback={() => signInController()}
 			/>
-			<button 
-				type='button'
-				onClick={() => signInController()}
-			>
-				crear cuenta
-			</button>
 		</>
 	)
 }

@@ -1,5 +1,5 @@
 import { createContext, useEffect } from "react"
-import { auth } from "../../../../lib/sdk/firebase"
+// import { auth } from "../../../../lib/sdk/firebase"
 import { useDispatch, useSelector } from "react-redux"
 import { fromLayerZeroGetAuthCurrentUser } from "../layerZero/authSlice"
 
@@ -7,8 +7,8 @@ const AuthFirstLayerContext = createContext(null)
 
 function AuthFirstLayerProvider({ children }) {
     const dispatch = useDispatch()
-    const loadingAuthSDK = useSelector(state.gAuth.loadingAuthSDK)
-    const errorInAuthSDK = useSelector(state.gAuth.errorInAuthSDK)
+    const loadingAuthSDK = useSelector((state) => state.gAuth.loadingAuthSDK)
+    const errorInAuthSDK = useSelector((state) => state.gAuth.errorInAuthSDK)
 
     useEffect(() => {
         console.log('is AuthSDK loading?', loadingAuthSDK)
@@ -16,9 +16,9 @@ function AuthFirstLayerProvider({ children }) {
 
     useEffect(() => {
         dispatch(fromLayerZeroGetAuthCurrentUser())
-    },[dispatch, auth])
+    },[dispatch])
 
-    const gUser = useSelector(state.gAuth.currentUser)
+    const gUser = useSelector((state) => state.gAuth.currentUser)
 
     return (
         <AuthFirstLayerContext.Provider value={{loadingAuthSDK, errorInAuthSDK, gUser}}>

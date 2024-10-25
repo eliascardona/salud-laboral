@@ -7,8 +7,10 @@ export const fromLayerZeroGetAuthCurrentUser = createAsyncThunk('firebase/curren
         return new Promise((resolve, reject) => {
           auth.onAuthStateChanged(
             user => {
-              if (user) {
-                resolve(user)
+              if(user) {
+                resolve(
+                  {userData: { email: user.email, uid: user.uid }}
+                )
               }
               reject('common rejection - no user')
             }
@@ -36,7 +38,7 @@ const authLogicalSlice = createSlice({
       state.loading = false;
     })
     .addCase('firebase/currentUser/fulfilled', (state, action) => {
-      state.currentUser = action.payload;
+      state.currentUser = action.payload.userData;
     })
     .addCase('firebase/currentUser/rejected', (state, action) => {
       state.errorInAuthSDK = action;

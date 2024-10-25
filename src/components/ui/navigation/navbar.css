@@ -23,21 +23,14 @@
 
 /* Contenido principal */
 .Navbar__main-content {
-  position: absolute;
-  left: 18%;
-  transition: 250px 0.3s ease;
+  width: 100%;
+  display: grid;
+  /* transition: 250px 0.3s ease; */
 }
 
 /* Estilos para cuando la barra lateral está cerrada */
 .Navbar__sidebar .Navbar__closed {
   transform: translateX(-100%);
-}
-
-/* Eliminar margen y padding del sidebar y main-content */
-.sidebar,
-.Navbar__main-content {
-  margin: 0;
-  padding: 0;
 }
 
 /* Reservar espacio para el scrollbar */
@@ -318,9 +311,6 @@
 @media screen and (max-width: 1150px){
   .Navbar____sidebar {
     width: 28%;
-  }
-  .Navbar__main-content {
-    margin-left: 29%;
   }
   .Navbar____nav-closed {
     margin-left: 0%;

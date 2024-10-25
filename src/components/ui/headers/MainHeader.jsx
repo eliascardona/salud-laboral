@@ -17,6 +17,16 @@ export default function MainHeader() {
 						consultas
 					</Link>
 				</span>
+				<span>
+					<Link to="/signUp" className='MainHeader__link'>
+						crear cuenta
+					</Link>
+				</span>
+				<span>
+					<Link to="/signIn" className='MainHeader__link'>
+						iniciar sesión
+					</Link>
+				</span>
 
 
 			</div>

@@ -10,7 +10,7 @@ import './navbar.css';
 
 
 export default function Navbar({ children }) {
-  const [navOpen, setNavOpen] = useState(true);
+  const [navOpen, setNavOpen] = useState(false);
   const [openSubmenus, setOpenSubmenus] = useState({});
   const [userMenuOpen, setUserMenuOpen] = useState(false);
   const [scrollbarVisible, setScrollbarVisible] = useState(true);
@@ -88,7 +88,7 @@ export default function Navbar({ children }) {
   return (
     <div className="Navbar__global_container">
       <MainHeader />
-      <LogicSidebar
+      {/* <LogicSidebar
         navOpen={navOpen}
         scrollbarVisible={scrollbarVisible}
         onScrollCB={handleSidebarActivity}
@@ -128,7 +128,7 @@ export default function Navbar({ children }) {
             }
           </div>
         </>
-      </LogicSidebar>
+      </LogicSidebar> */}
       <div className={`Navbar__main-content ${navOpen ? '' : 'Navbar__nav-closed'}`}>
         <button
           className={`${navOpen ? 'Navbar__btn-open' : 'Navbar__btn-close'}`}
@@ -144,7 +144,7 @@ export default function Navbar({ children }) {
             )
           }
         </button>
-        <span id='Navbar__application-content' style={{display:'grid', width:'81vw'}}>
+        <span id='Navbar__application-content' style={{width:'inherit', display:'grid'}}>
           {children}
         </span>
       </div>
