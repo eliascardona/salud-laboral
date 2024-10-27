@@ -1,7 +1,8 @@
 import { Routes, Route } from 'react-router-dom'
 import '../../assets/css/global.css'
 import MainHeader from '../../components/ui/headers/MainHeader'
-// import Navbar from '../../components/ui/navigation/Navbar'
+import SideNavbar from '../../components/ui/navigation/sidebar/SideNavbar'
+
 import NotFoundPage from '../(layerTwo)/notFound/NotFoundPage'
 import HomePage from '../(layerTwo)/home/HomePage'
 import SurveysPage from '../(layerOne)/surveys/LOSurveys'
@@ -21,6 +22,7 @@ export default function Page() {
 	return (
 		<div className="body">
 			<MainHeader />
+			<SideNavbar />
 			<div style={{width:'100%',display:'grid'}} id='layout-container'>
 				<Routes>
 					<Route 

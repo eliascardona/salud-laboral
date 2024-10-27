@@ -1,18 +1,19 @@
-export default function LogicSidebar(
-    {
-        navOpen, scrollbarVisible, onScrollCB, onMouseEnterCB, onMouseMoveCB, children
-    }
-) {
-    return (
-        <div
-            className={
-                `sidebar ${navOpen ? '' : 'closed'} ${scrollbarVisible ? 'scrollbar-visible' : ''}`
-            }
-            onScroll={onScrollCB}
-            onMouseEnter={onMouseEnterCB}
-            onMouseMove={onMouseMoveCB}
-        >
-            {children}
-        </div>
-    )
+import '../styles/sideNavbar.css'
+
+export default function LogicSidebar({ setModalToOpen, children }) {
+	return (
+		<div className='SNavbar__globalContainer'>
+			<div className='SNavbar__modalContainer'>
+                <div className='SNavbar__mainLy'>
+                    <span 
+                        className='SNavbar__close'
+                        onClick={() => setModalToOpen(b=> !b)}
+                    >
+                        cerrar
+                    </span>
+                    {children}
+                </div>
+			</div>
+		</div>
+	)
 }
