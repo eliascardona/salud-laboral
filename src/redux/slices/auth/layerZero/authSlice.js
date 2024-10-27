@@ -31,7 +31,11 @@ const authLogicalSlice = createSlice({
     errorInAuthSDK: false,
     currentUser: null,
   },
-  reducers: {},
+  reducers: {
+    setUserUID: (state, action) => {
+      state.currentUser = action.payload
+    }
+  },
   extraReducers: builder => {
     builder
     .addCase('firebase/currentUser/pending', (state, action) => {
@@ -46,5 +50,5 @@ const authLogicalSlice = createSlice({
   }
 })
 
-// export const { commonReducers } = authLogicalSlice.actions
+export const { setUserUID } = authLogicalSlice.actions
 export default authLogicalSlice.reducer;

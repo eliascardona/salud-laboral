@@ -1,18 +1,18 @@
 import { createContext, useEffect } from "react"
-// import { auth } from "../../../../lib/sdk/firebase"
 import { useDispatch, useSelector } from "react-redux"
 import { fromLayerZeroGetAuthCurrentUser } from "../layerZero/authSlice"
 
-const AuthFirstLayerContext = createContext(null)
+const LayerOneAuthContext = createContext(null)
 
-function AuthFirstLayerProvider({ children }) {
+function LayerOneAuthProvider({ children }) {
     const dispatch = useDispatch()
     const loadingAuthSDK = useSelector((state) => state.gAuth.loadingAuthSDK)
     const errorInAuthSDK = useSelector((state) => state.gAuth.errorInAuthSDK)
 
     useEffect(() => {
+        console.log('is AuthSDK error?', errorInAuthSDK)
         console.log('is AuthSDK loading?', loadingAuthSDK)
-    }, [loadingAuthSDK])
+    }, [loadingAuthSDK, errorInAuthSDK])
 
     useEffect(() => {
         dispatch(fromLayerZeroGetAuthCurrentUser())
@@ -21,11 +21,11 @@ function AuthFirstLayerProvider({ children }) {
     const gUser = useSelector((state) => state.gAuth.currentUser)
 
     return (
-        <AuthFirstLayerContext.Provider value={{loadingAuthSDK, errorInAuthSDK, gUser}}>
+        <LayerOneAuthContext.Provider value={gUser}>
             {children}
-        </AuthFirstLayerContext.Provider>
+        </LayerOneAuthContext.Provider>
     )
 
 }
 
-export { AuthFirstLayerContext, AuthFirstLayerProvider }
+export { LayerOneAuthContext, LayerOneAuthProvider }

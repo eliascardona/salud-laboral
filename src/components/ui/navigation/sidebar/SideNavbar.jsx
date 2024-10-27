@@ -1,7 +1,6 @@
-import { useState, useRef, useEffect } from 'react';
-import { main_cat } from './information/items';
-import { sub_cat } from './information/items'
-import MainHeader from '../headers/MainHeader'
+import { useState } from 'react';
+import { main_cat } from '../../../../lib/utils/(infoForNavbarUI)/items';
+import { sub_cat } from '../../../../lib/utils/(infoForNavbarUI)/items'
 import ProfileOptions from './profileOptionsUI/ProfileOptions';
 import LogicSidebar from './logicSidebar/LogicSidebar';
 import Navcat from './ui/navcat';
@@ -9,19 +8,14 @@ import Subcat from './ui/subcat'
 import './navbar.css';
 
 
-export default function Navbar({ children }) {
+export default function SideNavbar() {
   const [navOpen, setNavOpen] = useState(false);
   const [openSubmenus, setOpenSubmenus] = useState({});
   const [userMenuOpen, setUserMenuOpen] = useState(false);
   const [scrollbarVisible, setScrollbarVisible] = useState(true);
-  const hideTimeout = useRef(null);
 
   const toggleNav = () => {
     setNavOpen(!navOpen);
-  };
-
-  const handleOverlayClick = () => {
-    setNavOpen(false);
   };
 
   const toggleUserMenu = () => {
@@ -74,21 +68,8 @@ export default function Navbar({ children }) {
     }, 2000); // Puedes ajustar el tiempo según prefieras
   };
 
-  useEffect(() => {
-    // Iniciar con el scrollbar visible
-    setScrollbarVisible(true);
-
-    return () => {
-      if (hideTimeout.current) {
-        clearTimeout(hideTimeout.current);
-      }
-    };
-  }, []);
-
   return (
-    <div className="Navbar__global_container">
-      <MainHeader />
-      {/* <LogicSidebar
+      <LogicSidebar
         navOpen={navOpen}
         scrollbarVisible={scrollbarVisible}
         onScrollCB={handleSidebarActivity}
@@ -96,6 +77,20 @@ export default function Navbar({ children }) {
         onMouseMoveCB={handleSidebarActivity}
       >
         <>
+        <button
+          className={`${navOpen ? 'Navbar__btn-open' : 'Navbar__btn-close'}`}
+          onClick={toggleNav}
+          aria-label={navOpen ? 'Cerrar menu' : 'Abrir menu'}
+          aria-expanded={navOpen}
+        >
+          {
+            navOpen ? (
+              <ion-icon name="people-outline"></ion-icon>
+            ) : (
+              <ion-icon name="people-outline"></ion-icon>
+            )
+          }
+        </button>
           <ProfileOptions userMenuOpen={userMenuOpen} toggleUserMenu={toggleUserMenu} />
           <div className="Navbar__nav-sections">
             <div className="Navbar__nav-title">Navigation</div>
@@ -111,9 +106,7 @@ export default function Navbar({ children }) {
                   key={i + 1}
                 >
                   {
-                    sub_cat
-                      .filter(item => item.id === i)  // Filtra solo los que tienen el id
-                      .map((item, j) => (
+                    sub_cat.filter(item => item.id === i).map((item, j) => (
                         <Subcat
                           titulo={item.titulo}
                           link={item.link}
@@ -128,26 +121,6 @@ export default function Navbar({ children }) {
             }
           </div>
         </>
-      </LogicSidebar> */}
-      <div className={`Navbar__main-content ${navOpen ? '' : 'Navbar__nav-closed'}`}>
-        <button
-          className={`${navOpen ? 'Navbar__btn-open' : 'Navbar__btn-close'}`}
-          onClick={toggleNav}
-          aria-label={navOpen ? 'Cerrar menu' : 'Abrir menu'}
-          aria-expanded={navOpen}
-        >
-          {
-            navOpen ? (
-              <ion-icon name="people-outline"></ion-icon>
-            ) : (
-              <ion-icon name="people-outline"></ion-icon>
-            )
-          }
-        </button>
-        <span id='Navbar__application-content' style={{width:'inherit', display:'grid'}}>
-          {children}
-        </span>
-      </div>
-    </div>
+      </LogicSidebar>
   )
 }

@@ -1,4 +1,4 @@
-export default function ProfileOptions(
+export default function LogicSidebar(
     {
         navOpen, scrollbarVisible, onScrollCB, onMouseEnterCB, onMouseMoveCB, children
     }

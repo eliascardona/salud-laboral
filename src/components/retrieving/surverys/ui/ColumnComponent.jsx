@@ -1,19 +1,25 @@
-import '../styles/survey.css'
+import CommonCard from '../../../ui/commonUI/eliasCard/CommonCard'
 
-export default function ColumnComponent({ item, URLDispatcher, attr, keyv }) {
+export default function ColumnComponent({ item, attr, keyv, querystringModifier }) {
     return (
-        <div onClick={URLDispatcher} key={keyv}>
-            <div className="Survey__card">
-                {
-                    item && (
-                        <span>
-                            {
-                                typeof attr === 'string' && item[attr]
-                            }
-                        </span>
-                    )
-                }
-            </div>
+        <div 
+            id={`grid-column-${keyv}`}
+            onClick={querystringModifier}
+            key={keyv}
+        >
+            <CommonCard>
+                <>
+                    {
+                        item && (
+                            <span>
+                                {
+                                    typeof attr === 'string' && item[attr]
+                                }
+                            </span>
+                        )
+                    }
+                </>
+            </CommonCard>
         </div>
     )
 }
