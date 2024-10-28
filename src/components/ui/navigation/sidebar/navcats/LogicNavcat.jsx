@@ -3,6 +3,8 @@ import { main_cat } from '../../../../../lib/utils/(infoForNavbarUI)/items'
 import { sub_cat } from '../../../../../lib/utils/(infoForNavbarUI)/items'
 import Navcat from '../ui/navcat'
 import Subcat from '../ui/subcat'
+import '../styles/navbar.css'
+
 
 export default function LogicNavcat() {
     const [openSubmenus, setOpenSubmenus] = useState({})
@@ -31,13 +33,12 @@ export default function LogicNavcat() {
         <div className="Navbar__nav-sections">
             <div className="Navbar__nav-title">Navigation</div>
             {
-                main_cat.map((items, i) => (
+                main_cat.map((item, i) => (
                     <Navcat
-                        titulo={items.titulo}
-                        iconName={items.iconName}
-                        color={items.color}
+                        titulo={item.titulo}
+                        href={item.href}
                         handleToggle={handleSubmenuToggle}
-                        toggleParam={items.titulo}
+                        toggleParam={item.id}
                         openSubmenus={openSubmenus}
                         key={i}
                     >
@@ -45,8 +46,7 @@ export default function LogicNavcat() {
                             sub_cat.filter(item => item.id === i).map((item, j) => (
                                 <Subcat
                                     titulo={item.titulo}
-                                    link={item.link}
-                                    color={item.color}
+                                    href={item.href}
                                     iconName={item.iconName}
                                     key={j}
                                 />

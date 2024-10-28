@@ -1,41 +1,17 @@
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import '../styles/navbar.css'
 
-export default function Subcat({ titulo, link, iconName, color }) {
+export default function Subcat({ titulo, href, iconName }) {
   const navigate = useNavigate();
-
-  const GoTo = (url) => {
-    navigate(url);  // Usa navigate para cambiar de ruta
-  };
 
   return (
     <li>
-      <a 
-        href="#"
-        onClick={(e) => {
-          e.preventDefault();  // Previene el comportamiento por defecto
-          GoTo(link);  // Navega usando la función GoTo
-        }}
-      >
-        {/* Icono con color personalizado */}
-        <ion-icon 
-          name={iconName} 
-          style={{
-            fontSize: '10px',
-            color: color || '#333',  // Aplica el color al ícono
-            marginRight: '8px'
-          }} 
-          className="Navbar__sub-icon">
-        </ion-icon>
-
-        {/* Título con estilo de color gris */}
-        <span 
-          style={{
-            color: '#666'  // Cambia el color del texto a gris
-          }}
-        >
+      <Link to={href}>
+        <ion-icon name={iconName} style={{fontSize: '1em',color:'#333'}}></ion-icon>
+        <span style={{color: '#666'}}>
           {titulo}
         </span>
-      </a>
+      </Link>
     </li>
-  );
+  )
 }

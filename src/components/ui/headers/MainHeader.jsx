@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import './MainHeader.css'
+import './mainHeader.css'
 
 export default function MainHeader() {
 	return (
@@ -8,13 +8,18 @@ export default function MainHeader() {
 
 				<span>
 					<Link to="/" className='MainHeader__link'>
-						home
+						inicio
 					</Link>
 				</span>
 				{/*    navigation link   */}
 				<span>
-					<Link to="/consultas" className='MainHeader__link'>
-						consultas
+					<Link to="/encuestas" className='MainHeader__link'>
+						encuestas
+					</Link>
+				</span>
+				<span>
+					<Link to="/crear-encuestas" className='MainHeader__link'>
+						iniciar encuesta
 					</Link>
 				</span>
 				<span>

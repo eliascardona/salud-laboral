@@ -1,61 +1,30 @@
+import { Link } from 'react-router-dom';
+import '../styles/navbar.css'
+
 export default function Navcat(
-  { titulo, iconName, color, handleToggle, toggleParam, openSubmenus={}, children }
+  { titulo, href, handleToggle, toggleParam, openSubmenus={}, children }
 ) {
   return (
     <ul className="Navbar__nav-list">
-      <li>
-        <a 
-          href="#"
-          onClick={() => {
-            handleToggle(toggleParam);
-          }}
-        >
-          {/* Icono con color personalizado */}
-          <ion-icon 
-            name={iconName} 
-            style={{
-              fontSize: '25px',
-              color: color || '#333',
-              marginRight: '10px'
-            }} 
-            className="Navbar__icon">
-          </ion-icon>
-
+      <li
+      onClick={() => {
+        handleToggle(toggleParam);
+      }}
+      >
+        <Link to={href}>
+          <ion-icon name='people-outline'></ion-icon>
           <span>{titulo}</span>
-
-          {/* Chevron dinámico basado en el estado del submenú */}
           {
-            openSubmenus[toggleParam] ? (
-              <ion-icon 
-                name="chevron-up-outline" 
-                style={{
-                  fontSize: '20px',
-                  color: '#666',
-                  marginLeft: 'auto'
-                }} 
-                className="Navbar__chevron">
-              </ion-icon>
-            ) : (
-              <ion-icon 
-                name="chevron-down-outline"  
-                style={{
-                  fontSize: '20px',
-                  color: '#999',
-                  marginLeft: 'auto'
-                }} 
-                className="Navbar__chevron">
-              </ion-icon>
-            )
+            openSubmenus[toggleParam] ? 
+            <ion-icon name="chevron-up-outline"></ion-icon> : <ion-icon name="chevron-down-outline"></ion-icon>
           }
-        </a>
-
-        {/* Children: mostrar contenido con transición */}
+        </Link>
         <div 
           style={{
-            maxHeight: openSubmenus[toggleParam] ? '200px' : '0px',  // Cambiar entre abierto y cerrado
+            maxHeight: openSubmenus[toggleParam] ? '200px' : '0px',
             overflow: 'hidden',
-            opacity: openSubmenus[toggleParam] ? 1 : 0,  // Cambiar la opacidad
-            transition: 'max-height 0.3s ease, opacity 0.3s ease'  // Añadir transición de opacidad
+            opacity: openSubmenus[toggleParam] ? 1 : 0,
+            transition: 'max-height 0.3s ease, opacity 0.3s ease'
           }}
         >
           {children}

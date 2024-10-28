@@ -1,4 +1,4 @@
-import "./CardLayout.css";
+import "./CardLayout.css"
 
 export default function CardLayout({ children }) { 
     return (
@@ -7,5 +7,5 @@ export default function CardLayout({ children }) {
                 {children}
             </div>
         </div>
-    );
+    )
 }

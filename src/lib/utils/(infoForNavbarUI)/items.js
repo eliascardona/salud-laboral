@@ -1,14 +1,33 @@
-export const main_cat = [
-    { iconName: 'heart', titulo: 'Prueba 1',color: 'rgb(255, 99, 71)'},
-    { iconName: 'home', titulo: 'Prueba 2',color: 'rgb(35, 319, 21)'},
-    { iconName: 'accessibility', titulo: 'Prueba 3',color: 'rgb(235, 19, 321)'},
-    { iconName: 'ball', titulo: 'Prueba Vacia',color: 'rgb(5, 19, 321)'}
+const main_cat = [
+    {
+        id: 'mc-1',
+        iconName: 'caret-forward',
+        titulo: 'IR A ENCUESTAS',
+        href: '/encuestas',
+    },
+    {
+        id: 'mc-2',
+        iconName: 'caret-forward',
+        titulo: 'IR A ENCUESTAS',
+        href: '/encuestas',
+    },
 ]
-export const sub_cat =
-[
-    { id:0,iconName: 'caret-forward', titulo: 'Sub Prueba 1',link: '/',color: 'rgb(255, 99, 71)'},
-    { id:1,iconName: 'caret-forward', titulo: 'Sub Prueba 2',link: '/prueba',color: 'rgb(35, 19, 21)'},
-    { id:2,iconName: 'caret-forward', titulo: 'Sub Prueba 3',link: '/',color: 'rgb(235, 19, 321)'},
-    { id:0,iconName: 'caret-forward', titulo: 'Sub Prueba 5',link: '/',color: 'rgb(25, 19, 21)'}
 
+const sub_cat =[
+    {
+        id: 'sc-1',
+        iconName: 'caret-forward',
+        titulo: 'IR A ENCUESTAS',
+        href: '/encuestas',
+        color: 'rgb(35, 19, 21)'
+    },
+    {
+        id: 'sc-2',
+        iconName: 'caret-forward',
+        titulo: 'IR A ENCUESTAS',
+        href: '/encuestas',
+    },
 ]
+
+
+export { main_cat, sub_cat }

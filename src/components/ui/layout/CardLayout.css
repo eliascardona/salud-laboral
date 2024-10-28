@@ -1,33 +1,27 @@
 .CardLy__lyCtn {
     width: 100%;
     padding: 20px;
-    background-color: #ffffff; /* Fondo blanco para coherencia */
-    min-height: 100vh; /* Asegura que ocupe toda la altura disponible */
+    min-height: 100vh;
     box-sizing: border-box;
 }
 
-/* Grid de tarjetas */
 .CardLy__grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 columnas por defecto */
+    grid-template-columns: repeat(3, 1fr)
     gap: 20px;
     max-width: 1200px;
-    margin: 0 auto; /* Centra la cuadrícula */
+    margin: 0 auto;
     padding-top: 3rem;
 }
 
-/* Media Queries para Responsividad */
-
-/* Pantallas medianas (tablets y pequeños desktops) */
 @media (max-width: 992px) {
     .card-grid {
-        grid-template-columns: repeat(2, 1fr); /* 2 columnas */
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
-/* Pantallas pequeñas (móviles) */
 @media (max-width: 600px) {
     .card-grid {
-        grid-template-columns: 1fr; /* 1 columna */
+        grid-template-columns: 1fr;
     }
 }

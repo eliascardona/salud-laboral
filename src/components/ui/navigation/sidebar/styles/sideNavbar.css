@@ -8,7 +8,7 @@
 	height: 100vh;
 	z-index: 0;
 	display: grid;
-    background-color: rgba(55, 65, 81, 0.3);
+    background-color: rgba(84, 84, 84, 0.2);
 	overflow: auto;
 }
 
@@ -24,10 +24,9 @@
 	outline: 0;
 	outline-style: dotted;
 	pointer-events: auto;
-	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+	box-shadow: rgba(10, 10, 10, 0.3) 0 0 2px 0;
 	overflow: auto;
 }
-
 
 .SNavbar__mainLy {
 	width: 100%;
