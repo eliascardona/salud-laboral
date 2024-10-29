@@ -1,10 +1,12 @@
 import { useUpdateURLSearchParams } from '../../../lib/utils/hooks/navigation';
+import CustomSelect from '../../retrieving/surverys/logic/CustomSelect';
 import ColumnComponent from '../../retrieving/surverys/ui/ColumnComponent';
 //import DataDeatilsComponent from '../../retrieving/surverys/ui/DataDeatilsComponent';
-import './styles/HomePageUI.css'
+import './styles/SurveyPageUI.css'
+import SvForm from './SvForm'
 
 
-export default function SurveyPageUI() {
+export default function SurveyPageUI({ trustedData }) {
     const data1 = { id: 1, info: 'Info 1' }
     const data2 = [{ id: 1, name: 'John' }, { id: 2, name: 'Jane' }];
 
@@ -21,28 +23,28 @@ export default function SurveyPageUI() {
     */
 
     return (
-        <div className="Home__grid">
-            <div className="Home__col">
+        <div className="Survey__grid">
+            <div className="Survey__col Survey__columnOne">
+                <CustomSelect />
                 <ColumnComponent 
                     item={data1}
-                    attr='info'
-                    keyv={`${data1['info']}_${rand}`}
                     querystringModifier={() => handleClick('rondin', data1.id)}
                 ></ColumnComponent>
+                <SvForm />
             </div>
-            <div className="Home__col">
+            <div className="Survey__col">
                 {
                     data2.map((el, i) => (
                         <ColumnComponent 
                             item={el}
                             attr='name'
-                            keyv={`${data2['name']}_${i}`}
-                            querystringModifier={() => handleClick('rondin', data1.id)}
+                            keyv={`${el['name']}-${rand}`}
+                            querystringModifier={() => handleClick('empresa', el.id)}
                         ></ColumnComponent>
                     ))
                 }
             </div>
-            <div className="Home__col">
+            <div className="Survey__col">
 				{/*    {
                     stateVar && <>{
                         (async () => {

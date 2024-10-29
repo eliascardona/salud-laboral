@@ -11,8 +11,6 @@
     border-right: 1px solid #6a6a6a;
 }
 
-.Survey__card {
-    margin: 1rem;
-    border-radius: .375rem;
-    box-shadow: rgba(10, 10, 10, 0.3) 0 0 3px 0;
+.Survey__columnOne {
+    grid-template-rows: 10% 25% 65%;
 }

@@ -1,25 +1,21 @@
 import CommonCard from '../../../ui/commonUI/eliasCard/CommonCard'
 
-export default function ColumnComponent({ item, attr, keyv, querystringModifier }) {
+export default function ColumnComponent({ item, querystringModifier }) {
     return (
-        <div 
-            id={`grid-column-${keyv}`}
-            onClick={querystringModifier}
-            key={keyv}
-        >
-            <CommonCard>
+        <>
+            <CommonCard onCardClick={querystringModifier}>
                 <>
                     {
                         item && (
                             <span>
-                                {
-                                    typeof attr === 'string' && item[attr]
-                                }
+                                <pre>
+                                    estado heredaro{"\t"}{JSON.stringify({vv:item})}
+                                </pre>
                             </span>
                         )
                     }
                 </>
             </CommonCard>
-        </div>
+        </>
     )
 }

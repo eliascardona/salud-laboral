@@ -1,5 +1,4 @@
-import './CustomSelect.css';
-import { useState } from 'react';
+import { useState } from 'react'
 
 function useCustomSelect(initialValue) {
   const [value, setValue] = useState(initialValue);
@@ -11,7 +10,7 @@ function useCustomSelect(initialValue) {
   return [value, handleChange];
 }
 
-function CustomSelect({ options, value, onChange }) {
+function CustomSelectHandler({ options, value, onChange }) {
   return (
     <div className="custom-select">
       <select value={value} onChange={onChange}>
@@ -25,7 +24,7 @@ function CustomSelect({ options, value, onChange }) {
   );
 }
 
-export default function ParentComponent() {
+export default function CustomSelect() {
   const options = [
     { label: 'Option 1', value: 'option1' },
     { label: 'Option 2', value: 'option2' },
@@ -34,14 +33,10 @@ export default function ParentComponent() {
   const [selectedValue, handleSelectChange] = useCustomSelect(options[0].value);
 
   return (
-    <div className="parent-component">
-      <h2>Custom Select Example</h2>
-      <CustomSelect
-        options={options}
-        value={selectedValue}
-        onChange={handleSelectChange}
-      />
-      <p>Selected Value: {selectedValue}</p>
-    </div>
-  );
+    <CustomSelectHandler 
+      options={options}
+      value={selectedValue}
+      onChange={handleSelectChange}
+    />
+  )
 }
