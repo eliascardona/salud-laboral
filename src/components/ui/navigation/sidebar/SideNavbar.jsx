@@ -9,7 +9,7 @@ export default function SideNavbar() {
 
     return (
         <>
-            <span 
+            {/* <span 
                 className='Navbar__activator'
                 // style={{display:`${isModalOpen ? 'none' : 'inherit'}`}}
             >
@@ -24,7 +24,7 @@ export default function SideNavbar() {
                     >
                     </ion-icon>
                 </span>
-            </span>
+            </span> */}
             {
                 isModalOpen &&
                 <LogicSidebar setModalToOpen={setModalToOpen}>

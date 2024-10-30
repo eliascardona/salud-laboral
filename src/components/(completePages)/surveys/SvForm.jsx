@@ -1,16 +1,13 @@
 export default function SvForm() {
-	async function handleSubmit(evt) {
+	async function handleSurveySubmit(evt) {
 		evt.preventDefault()
+		const fecha = new Date(evt.target.fecha.value).toISOString().split('T')[0];
 		const temp = {
-			idest: evt.target.idest.value,
-			nombre: evt.target.nombre.value,
-			apellidoMat: evt.target.apellidoMat.value,
-			apellidoPat: evt.target.apellidoPat.value,
-			grupo: evt.target.grupo.value,
-			contrasenia: evt.target.contrasenia.value,
+			folio: evt.target.folio.value,
+			fecha: fecha,
 		}
 		console.log(temp)
-		const r = await fetch("http://127.0.0.1:8080/estudiante", {
+		const r = await fetch("http://127.0.0.1:8081/formulario", {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json'
@@ -22,44 +19,25 @@ export default function SvForm() {
 	}
 	return (
 		<div>
-			<form onSubmit={e => handleSubmit(e)}>
-			<label style={{display:'block'}}>{'crear estudiante'}</label>
+			<form id="sv-form" key={'sv-f'} onSubmit={e => handleSurveySubmit(e)}>
+			<label style={{display:'block'}}>
+				{'FORMULARIO'}
+			</label>
+
+
 			<input 
 				type='number'
-				name='idest'
-				placeholder='id-est'
+				name='folio'
+				placeholder='folio de formulario'
 			/>
 			<hr/>
 			<input 
-				type='text'
-				name='nombre'
-				placeholder='nombre estudiante'
+				type='date'
+				name='fecha'
 			/>
 			<hr/>
-			<input 
-				type='text'
-				name='apellidoPat'
-				placeholder='paterno'
-			/>
-			<hr/>
-			<input 
-				type='text'
-				name='apellidoMat'
-				placeholder='materno'
-			/>
-			<hr/>
-			<input 
-				type='text'
-				name='grupo'
-				placeholder='grupo'
-			/>
-			<hr/>
-			<input 
-				type='text'
-				name='contrasenia'
-				placeholder='password'
-			/>
-			<hr/>
+
+
 			<button type='submit'>
 				{'Enviar a Java Spring'}
 			</button>

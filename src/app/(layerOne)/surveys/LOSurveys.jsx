@@ -14,19 +14,13 @@ export default function SurveysPage() {
     }, [dispatch])
 
     useEffect(() => {
-        let isMounted = false
         if (currentUser === null) return
-
         if (typeofHandler(currentUser?.uid, 'string')) {
             dispatch(
                 setUserUID(currentUser.uid)
             )
         }
-
-        return () => {
-            isMounted = false
-        }
-    }, [dispatch])
+    }, [dispatch, currentUser])
 
     return (
         <LTSurveys trustedData={currentUser} />
