@@ -5,6 +5,7 @@ import SideNavbar from '../../components/ui/navigation/sidebar/SideNavbar'
 
 import NotFoundPage from '../(layerTwo)/notFound/NotFoundPage'
 import HomePage from '../(layerTwo)/home/HomePage'
+import Prueba from '../(layerTwo)/prueba/Prueba'
 import SurveysPage from '../(layerOne)/surveys/LOSurveys'
 import SignUpPage from '../(layerTwo)/signUp/SignUpPage'
 import SignInPage from '../(layerTwo)/signIn/SignInPage'
@@ -17,6 +18,7 @@ export default function Page() {
 		surveyPage: <SurveysPage/>,
 		signUp: <SignUpPage />,
 		signIn: <SignInPage />,
+		prueba: <Prueba />,
 	}
 
 	return (
@@ -37,6 +39,10 @@ export default function Page() {
 					<Route 
 						path="/encuestas"
 						element={pagesDirectory.surveyPage}
+					/>
+					<Route 
+						path="/pruebas"
+						element={pagesDirectory.prueba}
 					/>
 					<Route 
 						path="/signUp"
