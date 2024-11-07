@@ -1,6 +1,6 @@
 import { useUpdateURLSearchParams } from '../../../lib/utils/hooks/navigation';
-import CustomSelect from '../../retrieving/surverys/logic/CustomSelect';
-import ColumnComponent from '../../retrieving/surverys/ui/ColumnComponent';
+// import CustomSelect from '../../(commonLogicComponents)/CustomSelect';
+// import ColumnComponent from '../../retrieving/surverys/columns/ui/ColumnComponent';
 //import DataDeatilsComponent from '../../retrieving/surverys/ui/DataDeatilsComponent';
 import './styles/SurveyPageUI.css'
 import BizForm from './BizForm'

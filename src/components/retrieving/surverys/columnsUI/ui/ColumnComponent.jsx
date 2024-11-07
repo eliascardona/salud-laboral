@@ -1,4 +1,4 @@
-import CommonCard from '../../../ui/commonUI/eliasCard/CommonCard'
+import CommonCard from '../../../../ui/commonUI/eliasCard/CommonCard'
 
 export default function ColumnComponent({ item, querystringModifier }) {
     return (
