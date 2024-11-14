@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 const orchestationSlice = createSlice({
-  name: 'gAuth',
+  name: 'orchestation',
   initialState: {
     queryStep: 0,
     surveyId: null,
