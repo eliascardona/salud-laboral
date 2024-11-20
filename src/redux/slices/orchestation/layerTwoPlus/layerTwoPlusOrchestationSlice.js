@@ -1,23 +1,21 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 const orchestationSlice = createSlice({
-  name: 'orchestation',
+  name: 'layerTwoPlusOrchestation',
   initialState: {
-    surveyRound: {
-      queryStep: 0,
-      surveyId: null,
-      employeeId: null,
-    }
+    queryStep: 0,
+    surveyId: null,
+    employeeId: null,
   },
   reducers: {
     setQueryStep: (state, action) => {
-      state.surveyRound.queryStep = action.payload
+      state.queryStep = action.payload
     },
     setSurveyTupleID: (state, action) => {
-      state.surveyRound.surveyId = action.payload
+      state.surveyId = action.payload
     },
     setSurveyEmployeeID: (state, action) => {
-      state.surveyRound.employeeId = action.payload
+      state.employeeId = action.payload
     }
   }
 })

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { typeofHandler } from "../../../lib/utils/helpers/typeofVar"
+// import { typeofHandler } from "../../../lib/utils/helpers/typeofVar"
 //import { setUserUID } from "../../../redux/slices/auth/layerZero/authSlice"
 //import { fromLayerZeroGetAuthCurrentUser } from "../../../redux/slices/auth/layerZero/authSlice"
 //import LTSurveys from '../../(layerTwo)/surveys/LTSurveys'
@@ -11,7 +11,7 @@ import SurveyPageUI from "../../../components/(completePages)/surveys/SurveyPage
 export default function SurveysPage() {
     const dispatch = useDispatch()
     //const currentUser = useSelector(state => state.gAuth.currentUser)
-    const orchestationState = useSelector(state => state.orchestation)
+    const orchestationState = useSelector(state => state.orchestation.surveyRound)
 
     /*useEffect(() => {
         dispatch(fromLayerZeroGetAuthCurrentUser())
@@ -41,7 +41,12 @@ export default function SurveysPage() {
 			>
 				click me!
 			</button>
-			<SurveyPageUI utilState={orchestationState} />
+			<SurveyPageUI
+                dispatchAction={null}
+                admitedInfoLoad={null}
+                utilState={orchestationState}
+                setStateTool={null}
+            />
 		</>
     )
 }

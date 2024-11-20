@@ -1,14 +1,4 @@
-import { useState } from 'react'
-
-function useCustomSelect(initialValue) {
-  const [value, setValue] = useState(initialValue);
-
-  const handleChange = (event) => {
-    setValue(event.target.value);
-  };
-
-  return [value, handleChange];
-}
+import { useStore } from '../(completePages)/surveys/(zustand)/surveyStore'
 
 function CustomSelectHandler({ options, value, onChange }) {
   return (
@@ -29,14 +19,18 @@ export default function CustomSelect() {
     { label: 'Option 1', value: 'option1' },
     { label: 'Option 2', value: 'option2' },
     { label: 'Option 3', value: 'option3' },
-  ];
-  const [selectedValue, handleSelectChange] = useCustomSelect(options[0].value);
+  ]
+  const setInputSelectedValue = useStore(state => state.setInputValue)
 
   return (
     <CustomSelectHandler 
       options={options}
       value={selectedValue}
-      onChange={handleSelectChange}
+      onChange={(e) => {
+        const inputSelectedValue = e.target.value || 'seleccionar'
+        console.log(inputSelectedValue)
+        setInputSelectedValue(inputSelectedValue)
+      }}
     />
   )
 }

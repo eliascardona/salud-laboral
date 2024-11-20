@@ -9,9 +9,10 @@ import { useFetch } from '../../../lib/hooks/customFetch'
 // import StudForm from './StudForm'
 // import SvForm from './SvForm'
 import './styles/SurveyPageUI.css'
+import { useStore } from './(zustand)/surveyStore'
 
 
-export default function SurveyPageUI({ utilState }) {
+export default function SurveyPageUI({ dispatchAction, admitedInfoLoad, utilState, setStateTool }) {
     // const updateURLSearchParams = useUpdateURLSearchParams()
     // const handleClick = (qsKey, value) => {
     //     updateURLSearchParams(qsKey, value)
@@ -19,6 +20,36 @@ export default function SurveyPageUI({ utilState }) {
 	const [localLoading, setLocalLoading] = useState(true)
 	const [localPayload, setLocalPayload] = useState(null)
 	const [localError, setLocalError] = useState(null)
+	/*	useFetch function's needed parameters:
+	*	1. the options for HTTP,
+	*	2. the dependencies array,
+	*	3. hook for loading,
+	*	4. hook for payload,
+	*	5. hook for error
+	*/
+	const inputValue = useStore(state => state.inputValue)
+
+	// useEffect(() => {
+	// 	if(inputValue === undefined) return
+
+	// 	const httpOptionsForGETSurvey = {
+	// 		url: 'https://us-central1-elias-servicios-rest.cloudfunctions.net/retrieve-courses',
+	// 		httpOptions: {
+	// 			method: 'GET',
+	// 			headers: {
+	// 				'Content-Type': 'application/json'
+	// 			}
+	// 		}
+	// 	}
+	// 	useFetch(
+	// 		httpOptionsForGETSurvey,
+	// 		[utilState.queryStep],
+	// 		setLocalLoading,
+	// 		setLocalPayload,
+	// 		setLocalError,
+	// 	)
+	// 	console.log('Efecto --  [INITIAL IN SURVEY] --  sucedio')
+	// }, [inputValue])
 	const httpOptionsForGETSurvey = {
 		url: 'https://us-central1-elias-servicios-rest.cloudfunctions.net/retrieve-courses',
 		httpOptions: {
@@ -28,13 +59,6 @@ export default function SurveyPageUI({ utilState }) {
 			}
 		}
 	}
-	/*	useFetch function's needed parameters:
-	*	1. the options for HTTP,
-	*	2. the dependencies array,
-	*	3. hook for loading,
-	*	4. hook for payload,
-	*	5. hook for error
-	*/
 	useFetch(
 		httpOptionsForGETSurvey,
 		[utilState.queryStep],
@@ -42,6 +66,7 @@ export default function SurveyPageUI({ utilState }) {
 		setLocalPayload,
 		setLocalError,
 	)
+
 
     return (
         <>
@@ -63,9 +88,10 @@ export default function SurveyPageUI({ utilState }) {
 								localPayload.responsePayload.length > 0 ? 
 								localPayload.responsePayload.map(
 									(el, i) => {
-										// let temp = el
+										let ran = Math.random()
+										let rann = ran.toString
 										return (
-											<span>{el.nombreDelCurso}</span>
+											<span key={`el-${rann}${i}`}>{el.nombreDelCurso}</span>
 										)
 									}
 								) : (
