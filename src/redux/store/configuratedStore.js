@@ -5,7 +5,7 @@ import orchestationReducer from '../slices/orchestation/layerZero/orchestationSl
 const configuratedStore = configureStore({
 	reducer: {
 		gAuth: authReducer,
-		queryBaseState: orchestationReducer
+		orchestation: orchestationReducer
 	}
 })
 
